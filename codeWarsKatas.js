@@ -65,6 +65,16 @@ function likes(names) {
 
 //MY SOLUTION
 
+String.prototype.toJadenCase = function () {
+  var inputString = this
+  const wordArray = inputString.trim().split(" ")
+   const capSentence = wordArray.map(word => {
+     var capLetter = word[0].toUpperCase()
+     return capLetter + word.slice(1)
+   })
+  const jadenWords = capSentence.join(" ") 
+  return jadenWords
+ };
 
 
 //TESTS
