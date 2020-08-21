@@ -35,7 +35,8 @@ function likes(names) {
 //   });
 
 
-// 8/19, Problem: jaden string prototype
+// 8/19
+// Problem: jaden string prototype
 
 // Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
 
@@ -71,5 +72,59 @@ function likes(names) {
 // Test.assertEquals(str.toJadenCase(), "How Can Mirrors Be Real If Our Eyes Aren't Real");
 
 
+// 8/20/2020
+//PROBELM: 
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+//SOULTUON:
+
+
+function disemvowel(str) {
+  var strArray= str.split('')
+  let removeA = strArray.filter(char => {
+    return char !== "a"
+  })
+  let removeE = removeA.filter(char => {
+    return char !== "e"
+  })
+  let removeI = removeE.filter(char => {
+    return char !== "i"
+  })
+  let removeO = removeI.filter(char => {
+    return char !== "o"
+  })
+  let removeU = removeO.filter(char => {
+    return char !== "u"
+  })
+  let removeCapA = removeU.filter(char => {
+    return char !== "A"
+  })
+  let removeCapE = removeCapA.filter(char => {
+    return char !== "E"
+  })
+  let removeCapI = removeCapE.filter(char => {
+    return char !== "I"
+   })
+  let removeCapO = removeCapI.filter(char => {
+    return char !== "O"
+  })
+  let removeCapU = removeCapO.filter(char => {
+    return char !== "U"
+  })
+  
+  return removeCapU.join("")
+ }
+
+ // TESTS
+//  Test.assertEquals(disemvowel("This website is for losers LOL!"),
+//   "Ths wbst s fr lsrs LL!")
 
 
