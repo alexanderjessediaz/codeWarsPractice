@@ -137,4 +137,43 @@ function disemvowel(str) {
 //  Test.assertEquals(disemvowel("This website is for losers LOL!"),
 //   "Ths wbst s fr lsrs LL!")
 
+// 8/21
 
+// PROBLEM: make function that takes in a string and will make an object with letters as key and the number of times each letter occurs in word
+
+
+// SOLUTION
+
+function getObjFromStr(word){
+    const wordToCharArray = word.split("")
+    let wordCharsCount = wordToCharArray.reduce(function (allChars, char) {
+      if (char in allChars) {
+        allChars[char]++
+      }
+      else {
+        allChars[char] = 1
+      }
+      return allChars
+    }, {})
+    return wordCharsCount
+}
+
+
+// TEST
+// Test.assertEquals(getObjFromStr('pneumonoultramicroscopicsilicovolcanoconiosis'),
+// Object {
+//   a: 2,
+//   c: 6,
+//   e: 1,
+//   i: 6,
+//   l: 3,
+//   m: 2,
+//   n: 4,
+//   o: 9,
+//   p: 2,
+//   r: 2,
+//   s: 4,
+//   t: 1,
+//   u: 2,
+//   v: 1
+// }
