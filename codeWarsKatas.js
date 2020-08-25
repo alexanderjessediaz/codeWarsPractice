@@ -177,3 +177,57 @@ function getObjFromStr(word){
 //   u: 2,
 //   v: 1
 // }
+
+// PROBLEM 8/24
+
+// This time no story, no theory. The examples below show you how to write function accum:
+
+// Examples:
+
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
+// const testString = "aVeyPZmGu"
+// function accum(s) {
+	// takes in a string of chars
+  // first char needs to be capitalized followed by a "-"
+  // second char after the "-" is capitalized follwed by the second char lower case. i.e. if second char is "f" then it would be "Ff" end with another "-"
+  // each follwing char from the parameter will start with the char capitalized and followed by the same char lowercase x times with x being the char's index -1 then a "-"
+  
+//   const stringArr = s.split("")
+  
+//   const multiplyArrIndex = stringArr.reduce((acc, cv, ci, arr))
+//   }
+
+
+// console.log(accum(testString))
+
+
+
+// 
+
+// PROBLEM 8/24
+
+// Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+// Examples:
+// Input: 42145 Output: 54421
+
+// Input: 145263 Output: 654321
+
+// Input: 123456789 Output: 987654321
+
+// SOLUTION: 
+// function descendingOrder(n){
+//   const strArr = n.toString().split("")
+//   const sortedArr = strArr.sort((a,b) => b-a)
+//   return parseInt(sortedArr.join(""), 10)
+//  }
+
+//
+
+// TESTS:
+// Test.assertEquals(descendingOrder(0), 0)
+// Test.assertEquals(descendingOrder(1), 1)
+// Test.assertEquals(descendingOrder(123456789), 987654321)
