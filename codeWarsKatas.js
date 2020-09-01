@@ -262,3 +262,65 @@ function descendingOrder(n){
 // TESTS
 // Test.assertEquals(alphabetPosition("The sunset sets at twelve o' clock."), "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11");
 // Test.assertEquals(alphabetPosition("The narwhal bacons at midnight."), "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20");
+
+//8/31
+
+//PROBLEM
+// Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+// Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+// Examples:
+
+// Testing: [0, 0, 0, 1] ==> 1
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 0, 1] ==> 5
+// Testing: [1, 0, 0, 1] ==> 9
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 1, 0] ==> 6
+// Testing: [1, 1, 1, 1] ==> 15
+// Testing: [1, 0, 1, 1] ==> 11
+// However, the arrays can have varying lengths, not just limited to 4.
+
+// SOLUTION UNSOLVED CURRENTLY
+// const binaryArrayToNumber = arr => {
+//   // your code
+  
+//   const reverseArr = arr.reverse()
+  
+//   reverseArr.reduce(function (acc, cv, index, iv) {
+//     if (index === 0) {
+//       cv = 1
+//      acc = cv + acc
+// //       console.log(acc)
+//     } else if ( index === 1 && cv === 0) {
+//       cv = cv +2 
+//       acc = 2
+
+//       console.log(acc)
+      
+//       }
+//     else if ( index ===1 && cv === 1) {
+//       cv = cv +1
+//       acc = cv
+// //       console.log(acc)
+//     }
+//     else if (index === 2 && cv === 0 ) {
+//       acc = cv +4
+// //       console.log(acc)
+//     }
+//     else if ( index === 2 && cv === 1) {
+//       acc = cv + 3
+// //       console.log(acc)
+//     }
+//     else if (index === 3){
+//       cv = 4 * 2
+//       acc = cv
+// //       console.log(cv)
+//       console.log(acc)
+//     }
+//     else {
+//       acc = index
+//     }
+//   }, 0)
+// };
