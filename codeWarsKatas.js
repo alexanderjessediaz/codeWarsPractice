@@ -348,19 +348,19 @@ function descendingOrder(n){
 
 // SOLUTION
 
-// function list(names){
-//   return names.reduce(function(prev, current, index, array){
-//     if (index === 0){
-//       return current.name;
-//     }
-//     else if (index === array.length - 1){
-//       return prev + ' & ' + current.name;
-//     } 
-//     else {
-//       return prev + ', ' + current.name;
-//     }
-//   }, '');
-// }
+function list(names){
+  return names.reduce(function(prev, current, index, array){
+    if (index === 0){
+      return current.name;
+    }
+    else if (index === array.length - 1){
+      return prev + ' & ' + current.name;
+    } 
+    else {
+      return prev + ', ' + current.name;
+    }
+  }, '');
+}
 
 // TESTS
 // Test.assertEquals(list([{name: 'Bart'},{name: 'Lisa'},{name: 'Maggie'},{name: 'Homer'},{name: 'Marge'}]), 'Bart, Lisa, Maggie, Homer & Marge',
@@ -371,3 +371,76 @@ function descendingOrder(n){
 // "Must work with two names")
 // Test.assertEquals(list([{name: 'Bart'}]), 'Bart', "Wrong output for a single name")
 // Test.assertEquals(list([]), '', "Must work with no names")
+
+
+// PROBLEM 9/4
+// Given a list of numbers, determine whether the sum of its elements is odd or even.
+
+// Give your answer as a string matching "odd" or "even".
+
+// If the input array is empty consider it as: [0] (array with a zero).
+
+// SOLUTION
+function oddOrEven(array) {
+  let sum = array.reduce(function(acc,cv){
+   return cv +acc 
+ }, 0)
+ if (sum  %2 === 0){
+   return 'even'
+ } else {
+   return 'odd'
+ }
+}
+
+// PROBLEM 
+// Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+
+// For example, if this array were passed as an argument:
+
+// ["Telescopes", "Glasses", "Eyes", "Monocles"]
+
+// Your function would return the following array:
+
+// ["Eyes", "Glasses", "Monocles", "Telescopes"]
+
+// All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
+
+// SOLUTION
+function sortByLength (array) {
+  array.sort(function(a,b){
+    return a.length - b.length
+  })
+ return array
+};
+
+// PROBLEM
+// Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+// SOLUTION
+
+var number = function(array) {
+  return array.map(function (line, index) {
+    return (index + 1) + ": " + line;
+  });
+}
+
+// PROBLEM
+// In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up. 
+
+// SOLUTION 
+
+function wave(str){
+  let newArr = [];
+  for (let i = 0; i < str.length; i++) {
+    let copy = str.split('');
+    if(copy[i] !== ' ') {
+    copy[i] = copy[i].toUpperCase()
+    newArr.push(copy.join(''))
+    }
+  }
+  return newArr
+}
