@@ -444,3 +444,31 @@ function wave(str){
   }
   return newArr
 }
+
+// 9/8
+// PROBLEM Two to One
+
+// Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters,
+
+// each taken only once - coming from s1 or s2.
+// Examples:
+// a = "xyaabbbccccdefww"
+// b = "xxxxyyyyabklmopq"
+// longest(a, b) -> "abcdefklmopqwxy"
+
+// a = "abcdefghijklmnopqrstuvwxyz"
+// longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+
+// SOLUTION
+function longest(s1, s2) {
+  let strArr1 = s1.split("")
+   let strArr2 = s2.split("")
+   let strArr = strArr1.concat(strArr2)
+  let sortedArr = strArr.reduce(function(acc,cv,i,arr) {
+     if (acc.indexOf(cv) === -1) {
+       acc.push(cv)
+     }
+     return acc
+   }, [])
+   return sortedArr.sort().join("")
+ }
