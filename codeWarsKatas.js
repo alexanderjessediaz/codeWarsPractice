@@ -583,3 +583,32 @@ function arrayDiff(a,b){
 //     Test.assertDeepEquals(arrayDiff([1,8,2], []), [1,8,2], "a was [1,8,2], b was []");
 //   });
 // }); 
+
+// 9/15
+// PROBELM reverseWord
+// Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+
+// Examples
+// "This is an example!" ==> "sihT si na !elpmaxe"
+// "double  spaces"      ==> "elbuod  secaps"
+
+// SOLUTION
+function reverseWords(str) {
+  const strArr = str.split(" ")
+  const char = strArr.map(char => {
+    const reverseChar = char.split('').reverse().join("")
+    return reverseChar
+  })
+  
+  return char.join(" ")
+}
+
+// TESTS
+// Test.describe('Sample Tests', _ => {
+//   Test.it('Should pass Sample tests', _ => {
+//     Test.assertEquals(reverseWords('The quick brown fox jumps over the lazy dog.'), 'ehT kciuq nworb xof spmuj revo eht yzal .god');
+//     Test.assertEquals(reverseWords('apple'), 'elppa');
+//     Test.assertEquals(reverseWords('a b c d'), 'a b c d');
+//     Test.assertEquals(reverseWords('double  spaced  words'), 'elbuod  decaps  sdrow');
+//   });
+// });
