@@ -768,31 +768,148 @@ function recycle(array){
 }
 
 //TESTS
-Test.assertDeepEquals(recycle([
-  {
-    type: 'rotten apples',
-    material: 'organic'
-  },
-  {
-    type: 'out of date yogurt',
-    material: 'organic',
-    secondMaterial: 'plastic'
-  },
-  {
-    type: 'wine bottle',
-    material: 'glass',
-    secondMaterial: 'paper'
-  },
-  {
-    type: 'amazon box',
-    material: 'paper'
-  },
-  {
-    type: 'beer bottle',
-    material: 'glass',
-    secondMaterial: 'paper'
+// Test.assertDeepEquals(recycle([
+//   {
+//     type: 'rotten apples',
+//     material: 'organic'
+//   },
+//   {
+//     type: 'out of date yogurt',
+//     material: 'organic',
+//     secondMaterial: 'plastic'
+//   },
+//   {
+//     type: 'wine bottle',
+//     material: 'glass',
+//     secondMaterial: 'paper'
+//   },
+//   {
+//     type: 'amazon box',
+//     material: 'paper'
+//   },
+//   {
+//     type: 'beer bottle',
+//     material: 'glass',
+//     secondMaterial: 'paper'
+//   }
+//   ]), [ [ 'wine bottle', 'amazon box', 'beer bottle' ],
+//     [ 'wine bottle', 'beer bottle' ],
+//     [ 'rotten apples', 'out of date yogurt' ],
+//     [ 'out of date yogurt' ] ])
+
+// PROBLEM Fillin an array
+
+// ...square numbers
+// The numbers from 1 to n*n
+
+// const squares = n => ???
+// squares(5) // [1, 4, 9, 16, 25]
+// ...a range of numbers
+// A range of numbers starting from start and increasing by step
+
+// const range = (n, start, step) => ???
+// range(6, 3, 2) // [3, 5, 7, 9, 11, 13]
+// ...random numbers
+// A bunch of random integers between min and max
+
+// const random = (n, min, max) => ???
+// random(4, 5, 10) // [5, 9, 10, 7]
+// ...prime numbers
+// All primes starting from 2 (obviously)...
+
+// const primes = n => ???
+// primes(6) // [2, 3, 5, 7, 11, 13]
+
+// SOLUTION
+const squares = n => {
+  let nums = []
+  for (let i=1; i<n;i++){
+    if (i != n){
+      nums.push(i*i)
+    }
   }
-  ]), [ [ 'wine bottle', 'amazon box', 'beer bottle' ],
-    [ 'wine bottle', 'beer bottle' ],
-    [ 'rotten apples', 'out of date yogurt' ],
-    [ 'out of date yogurt' ] ])
+  nums.push(n*n)
+  return nums
+}
+
+const range = (n, start, step) => { 
+  let nArr = []
+  let newArr = [start]
+
+  
+  for (let i=1;i<n;i++){
+    if (i != n){
+      nArr.push(start)
+    }
+  }
+let z = nArr.reduce((acc,cv,ci,arr)=>{
+ 
+   acc[0] = acc[0]+ step 
+   newArr.push(acc[0])
+   
+   return acc
+
+},[start])
+return newArr
+}
+
+const random = (n, min, max) => {
+  let randomFloatNums = Math.random() * (max-min) + min
+  let wholeRandomNum = Math.round(randomFloatNums)
+  
+  let nArr = []
+  for (let i =0;i<n;i++){
+    nArr.push(i)
+  }
+  
+ let x = nArr.map(num => {
+  num = Math.round(Math.random() * (max-min) + min)
+  return num
+   
+  })
+return x
+}
+
+ function isPrime(value) {
+    for(var i = 2; i < value; i++) {
+        if(value % i === 0) {
+            return false;
+        }
+    }
+    return value > 1;
+}
+
+const primes = n => {
+  let primes = []
+  for (let i =0;i<n*5;i++){
+    primes.push(i)
+  }
+    let x =  primes.reduce((acc,cv)=>{
+      cv = cv + 1
+    if(isPrime(cv)){
+      acc.push(cv)
+    }
+  return acc.slice(0,n)
+  },[])
+  return x
+}
+
+// TESTS
+describe('Basic tests',_=>{
+  it('`squares(5)` should return `[1, 4, 9, 16, 25]`',_=>
+    Test.assertSimilar(squares(5), [1, 4, 9, 16, 25]));
+  
+  it('`range(6, 3, 2)` should return `[3, 5, 7, 9, 11, 13]`',_=>
+    Test.assertSimilar(range(6, 3, 2), [3, 5, 7, 9, 11, 13]));
+  
+  it('`random(4, 5, 10)` should return `[5, 9, 10, 7]`',_=>{
+    const rands = random(4, 5, 10);
+    Test.assertSimilar(rands.length, 4);
+    Test.expect(Math.max.apply(null, rands) <= 10);
+    Test.expect(Math.min.apply(null, rands) >= 5);
+    // you may need some others...
+  });
+  
+  it('`primes(6)` should return `[2, 3, 5, 7, 11, 13]`',_=>
+    Test.assertSimilar(primes(6), [2, 3, 5, 7, 11, 13]));
+});
