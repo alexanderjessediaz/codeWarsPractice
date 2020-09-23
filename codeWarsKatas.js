@@ -895,21 +895,58 @@ const primes = n => {
 }
 
 // TESTS
-describe('Basic tests',_=>{
-  it('`squares(5)` should return `[1, 4, 9, 16, 25]`',_=>
-    Test.assertSimilar(squares(5), [1, 4, 9, 16, 25]));
+// describe('Basic tests',_=>{
+//   it('`squares(5)` should return `[1, 4, 9, 16, 25]`',_=>
+//     Test.assertSimilar(squares(5), [1, 4, 9, 16, 25]));
   
-  it('`range(6, 3, 2)` should return `[3, 5, 7, 9, 11, 13]`',_=>
-    Test.assertSimilar(range(6, 3, 2), [3, 5, 7, 9, 11, 13]));
+//   it('`range(6, 3, 2)` should return `[3, 5, 7, 9, 11, 13]`',_=>
+//     Test.assertSimilar(range(6, 3, 2), [3, 5, 7, 9, 11, 13]));
   
-  it('`random(4, 5, 10)` should return `[5, 9, 10, 7]`',_=>{
-    const rands = random(4, 5, 10);
-    Test.assertSimilar(rands.length, 4);
-    Test.expect(Math.max.apply(null, rands) <= 10);
-    Test.expect(Math.min.apply(null, rands) >= 5);
-    // you may need some others...
-  });
+//   it('`random(4, 5, 10)` should return `[5, 9, 10, 7]`',_=>{
+//     const rands = random(4, 5, 10);
+//     Test.assertSimilar(rands.length, 4);
+//     Test.expect(Math.max.apply(null, rands) <= 10);
+//     Test.expect(Math.min.apply(null, rands) >= 5);
+//     // you may need some others...
+//   });
   
-  it('`primes(6)` should return `[2, 3, 5, 7, 11, 13]`',_=>
-    Test.assertSimilar(primes(6), [2, 3, 5, 7, 11, 13]));
-});
+//   it('`primes(6)` should return `[2, 3, 5, 7, 11, 13]`',_=>
+//     Test.assertSimilar(primes(6), [2, 3, 5, 7, 11, 13]));
+// });
+
+
+// 9/23/20
+
+//PROBLEM
+// Complete the solution so that it returns a formatted string. The return value should equal "Value is VALUE" where value is a 5 digit padded number.
+
+// Example:
+
+// solution(5) // should return "Value is 00005"
+
+//SOULTION
+function solution(value) {
+  if(value<10) return `Value is 0000${value}`
+  let nums = value.toString().split('')
+  if (nums.length === 2) {
+    nums.unshift("0")
+    nums.unshift("0")
+    nums.unshift("0")
+    return `Value is ${nums.join('')}` 
+    } 
+    else if (nums.length === 3) {
+      nums.unshift("0")
+      nums.unshift("0")
+      return `Value is ${nums.join('')}`
+    } 
+    else if (nums.length === 4) {
+      nums.unshift("0")
+      return `Value is ${nums.join('')}`
+    }
+    else {
+      return`Value is ${nums.join('')}`
+    }
+  }
+
+// TEST
+// Test.assertEquals(solution(5),"Value is 00005")
